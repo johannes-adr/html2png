@@ -1,6 +1,6 @@
 import express from "express";
 import { webkit } from "playwright-webkit";
-const API_PASSWORD = process.env["API_PASSWORD"] ?? "vAQ38U8CTuTk";
+const API_PASSWORD = process.env["API_PASSWORD"] ?? "password";
 console.log("Password: ", API_PASSWORD);
 async function main(){
     const app = express();
