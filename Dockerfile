@@ -1,12 +1,19 @@
-FROM python:3.9-slim
+FROM node:20-slim
 
-# Install Playwright and its dependencies
-RUN pip install flask
-RUN pip install playwright
-RUN playwright install-deps webkit
-RUN playwright install webkit
+WORKDIR /app
 
-# Add the script
-COPY webpagescreener.py webpagescreener.py
+# Use a minimal Node.js image
+COPY package.json package-lock.json ./
+RUN npm ci --only=production
 
-ENTRYPOINT ["python", "webpagescreener.py"]
+# Install Playwright and WebKit (minimum install for Playwright WebKit)
+RUN npx playwright install webkit --with-deps
+
+# Copy the application code
+COPY index.js index.js
+
+# Expose the port used by the application
+EXPOSE 5000
+
+# Run the application
+CMD ["node", "index.js"]

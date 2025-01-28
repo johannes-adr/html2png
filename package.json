@@ -1,0 +1,19 @@
+{
+  "name": "html2pngjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildImage": "podman build -t webpagescreener .",
+    "start": "podman stop webpagescreener & podman rm webpagescreener & podman run -t -i  --rm -p 5000:5000 --name=\"webpagescreener\" -m 256m -e API_PASSWORD=h  webpagescreener "
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "playwright-webkit": "^1.50.0"
+  }
+}

@@ -1,0 +1,1 @@
+podman run -t -i  --rm -p 5000:5000 --name="webpagescreener" -m 256m -e API_PASSWORD=h  webpagescreener 

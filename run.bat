@@ -1,1 +1,0 @@
-podman run --rm -t -i -p 5000:5000 --name="webpagescreener" webpagescreener
